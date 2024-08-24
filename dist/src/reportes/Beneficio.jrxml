@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Beneficio" language="groovy" pageWidth="842" pageHeight="595" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c090c256-80db-471b-8415-cc0059cbc978">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="gestion" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     YEAR(beneficios.`fecha_actual`) AS beneficios_fecha_actual,
+     beneficios.`numero` AS beneficios_numero,
+     beneficios.`nombre` AS beneficios_nombre,
+     beneficios.`motivo` AS beneficios_motivo,
+     beneficios.`fecha_mot` AS beneficios_fecha_mot,
+     beneficios.`fecha_rec` AS beneficios_fecha_rec,
+     beneficios.`fecha_env` AS beneficios_fecha_env,
+     beneficios.`doc_pend` AS beneficios_doc_pend,
+     beneficios.`val_debe` AS beneficios_val_debe
+FROM
+     `beneficios` beneficios
+WHERE YEAR(beneficios.fecha_actual)=$P!{gestion} ORDER BY numero]]>
+	</queryString>
+	<field name="beneficios_fecha_actual" class="java.lang.Long"/>
+	<field name="beneficios_numero" class="java.lang.Integer"/>
+	<field name="beneficios_nombre" class="java.lang.String"/>
+	<field name="beneficios_motivo" class="java.lang.String"/>
+	<field name="beneficios_fecha_mot" class="java.lang.String"/>
+	<field name="beneficios_fecha_rec" class="java.lang.String"/>
+	<field name="beneficios_fecha_env" class="java.lang.String"/>
+	<field name="beneficios_doc_pend" class="java.lang.String"/>
+	<field name="beneficios_val_debe" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="152" splitType="Stretch">
+			<staticText>
+				<reportElement x="223" y="7" width="361" height="27" uuid="3891159c-ffe5-4dee-896a-1d75ad3d7f8f"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[UNIVERSIDAD MAYOR DE SAN SIMÓN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="223" y="34" width="361" height="28" uuid="9c2b8a3f-0139-424f-be7c-7d419b831092"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DEPARTAMENTO DE PERSONAL ACADÉMICO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="223" y="62" width="361" height="28" uuid="e997bf3b-6fbc-42d1-99bf-208f2ef04930"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPORTE DE BENEFICIOS SOCIALES]]></text>
+			</staticText>
+			<image>
+				<reportElement x="33" y="0" width="95" height="89" uuid="be18f7f4-991f-45e7-a72e-62c4578f1e19"/>
+				<imageExpression><![CDATA["src\\M (1).jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="673" y="0" width="100" height="90" uuid="be9ce2ce-1cf7-4c3d-a9b4-655db43e62b8"/>
+				<imageExpression><![CDATA["src\\PA.jpg"]]></imageExpression>
+			</image>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="652" y="120" width="150" height="20" uuid="9d448f14-bd08-4ded-94b4-fc58fe7fd210"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="652" y="89" width="150" height="20" uuid="7141a9f6-1f59-4b08-9c10-05dfc315f6b5"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[E. Teresa Coronel Vargas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="580" y="89" width="72" height="20" uuid="14585c68-ba12-4435-a2b4-47eca5ed5edc"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Realizado por:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="513" y="120" width="139" height="20" uuid="97c48b68-d43d-41d2-a515-2d45fe4e7b09"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha generada del reporte:]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="33" height="20" uuid="2f887064-4469-4ece-a4cc-2b9935b6c5f1"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[AÑO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="33" y="0" width="33" height="20" uuid="4df9955e-91b5-4fc3-8fab-e47a20f13c93"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nº]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="66" y="0" width="115" height="20" uuid="27a06713-d732-48ef-8357-35529e57c0d8"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOMBRE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="181" y="0" width="84" height="20" uuid="fa3d7415-18c2-4a85-8896-cef8145ddabd"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[MOTIVO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="285" y="0" width="78" height="30" uuid="e2d1c902-01db-41da-a0df-dbee3c2d3841"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[FECHA DE MOTIVO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="373" y="0" width="78" height="41" uuid="a4f099ca-e90e-4244-898b-062f4d8a1f13"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[FECHA DE RECEPCION DE DOCUMENTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="461" y="0" width="89" height="41" uuid="cbdb5bbc-8365-45cf-a037-a4a556645cbf"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[FECHA DE ENVIO A ASESORIA LEGAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="555" y="0" width="129" height="41" uuid="4417e0f4-7aac-44ed-98d7-b1cc0dc2b919"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[DOCUMENTO PENDIENTE POR ENVIAR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="695" y="0" width="107" height="20" uuid="6a1553c7-b8d3-4e6f-a47d-844b2d8f9c0c"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[VALORES QUE DEBE]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="60" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="33" height="54" uuid="5e2f2219-b8d4-4ae8-8414-1df278753a16"/>
+				<textFieldExpression><![CDATA[$F{beneficios_fecha_actual}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="33" y="0" width="33" height="54" uuid="e6587c65-5eca-4392-a2bb-36cca5ad6401"/>
+				<textFieldExpression><![CDATA[$F{beneficios_numero}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="66" y="0" width="115" height="54" uuid="82f56888-b121-470b-a4a0-c3935288dda9"/>
+				<textFieldExpression><![CDATA[$F{beneficios_nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="181" y="0" width="84" height="54" uuid="ba9f0f36-8ef3-4011-a088-e94780fbdbaa"/>
+				<textFieldExpression><![CDATA[$F{beneficios_motivo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="275" y="0" width="78" height="54" uuid="2f72fa51-0739-4df7-a817-c2dc6f2e505f"/>
+				<textFieldExpression><![CDATA[$F{beneficios_fecha_mot}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="363" y="0" width="78" height="54" uuid="c8a0c1ed-65e3-42a0-a741-402e8467ffef"/>
+				<textFieldExpression><![CDATA[$F{beneficios_fecha_rec}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="451" y="0" width="89" height="54" uuid="c525b320-096b-41c6-afb1-6a20fd496aa9"/>
+				<textFieldExpression><![CDATA[$F{beneficios_fecha_env}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="555" y="0" width="129" height="54" uuid="8d8ec4b9-56b4-4449-b3d8-94f73c4cb57b"/>
+				<textFieldExpression><![CDATA[$F{beneficios_doc_pend}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="695" y="0" width="107" height="54" uuid="bb12b7bc-3e71-4fe8-98d3-8ec8dc22b644"/>
+				<textFieldExpression><![CDATA[$F{beneficios_val_debe}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="30" splitType="Stretch">
+			<textField>
+				<reportElement x="341" y="10" width="80" height="20" uuid="37c90daf-63e3-4a88-83b0-e7c796a7e33d"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="421" y="10" width="40" height="20" uuid="74139c5e-7584-403d-9cae-f8af758853c7"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
